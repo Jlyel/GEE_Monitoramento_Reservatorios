@@ -15,7 +15,7 @@ Map.centerObject(aoi, 8);
 // 2) COLEÇÃO CHIRPS/DAILY DE PRECIPITAÇÃO;
 var chirps = ee.ImageCollection("UCSB-CHG/CHIRPS/DAILY") // Seleciona coleção de imagens
                     .select('precipitation') // Seleciona banda
-                    .filterDate('2022-03-01','2022-04-01') // Seleciona data
+                    .filterDate('2019-03-01','2022-04-01') // Seleciona data
                     .filterBounds(aoi); // Seleciona região de interesse
 
 print("Número de imagens", chirps.size());
