@@ -6,7 +6,7 @@
 // Descrição: Este script cria uma tabela com dados da coleção CHIRPS/DAILY de precipitação.
 
 // ÁREA DE INTERESSE
-var aoi = ee.FeatureCollection('users/jmscagricola/Area_Drenagem_Reservatorios_SE');
+var aoi = ee.FeatureCollection('Colar aqui caminho do Asset');
 
 // 1) VISUALIZA ÁREA DE INTERESSE;
 Map.addLayer(aoi.draw({color: '000000', strokeWidth: 1}), {}, 'drawn');
@@ -43,7 +43,7 @@ var precipitacao = precipitacao_date.map(function(image){
   print(precipitacao);
   
 // 6) CRIA TABELA CONTENDO DADOS DE PRECIPITAÇÃO (mm) DIÁRIA;
-var precipitacao_chirps = precipitacao.flatten().select('reservator','date', 'mean'); // Features do arquivo
+var precipitacao_chirps = precipitacao.flatten().select('Exemplo: Date, mean'); // Features do arquivo
 print('Informações para tabela', precipitacao_chirps);
 
 //---------------------------------------------------------------------------//
@@ -56,7 +56,7 @@ Export.table.toDrive({
   folder: 'Script_Precipitacao', // Cria nome do arquivo
   fileNamePrefix: 'CHIRPS_Precipitaticao', // Cria pasta
   fileFormat: 'CSV', // Extensão do arquivo
-  selectors: ['reservator','date', 'mean'] // Seleciona dados para tabela
+  selectors: ['Exemplo: Date, mean'] // Seleciona dados para tabela
 });
 
 //---------------------------------------------------------------------------//
